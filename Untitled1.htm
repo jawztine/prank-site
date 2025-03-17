@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prank Page</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            transition: background 0.2s;
+        }
+        .buttons {
+            display: flex;
+            gap: 20px;
+        }
+        button {
+            font-size: 20px;
+            padding: 15px 30px;
+            border: none;
+            cursor: pointer;
+        }
+        .yes-btn { background-color: red; color: white; }
+        .no-btn { background-color: green; color: white; }
+        .panic {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            color: red;
+            font-size: 40px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            animation: intenseEffect 0.2s infinite alternate;
+        }
+        .siren {
+            animation: sirenEffect 0.5s infinite alternate;
+        }
+        @keyframes sirenEffect {
+            0% { background-color: black; }
+            100% { background-color: red; }
+        }
+        @keyframes intenseEffect {
+            0% { background-color: black; transform: scale(1); }
+            50% { background-color: red; transform: scale(1.05); }
+            100% { background-color: black; transform: scale(1); }
+        }
+        .submit-btn {
+            text-transform: uppercase;
+            font-size: 20px;
+            padding: 15px 30px;
+            border: none;
+            cursor: pointer;
+            background-color: white;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="buttons">
+        <button class="yes-btn" onclick="triggerPanic()">YES</button>
+        <button class="no-btn" onclick="triggerSiren()">NO</button>
+    </div>
+
+    <script>
+        function triggerPanic() {
+            document.body.innerHTML = '<div class="panic">Your device has been infiltrated with multiple viruses!<br><br>' +
+                                      '<button onclick="fixDevice()">Fix Device</button></div>';
+        }
+
+        function fixDevice() {
+            document.body.innerHTML = '<div class="panic">' +
+                                      '<h2>Enter Your Details to Fix Your Device</h2>' +
+                                      '<form id="prankForm">' +
+                                      'Name: <input type="text" id="name" required><br><br>' +
+                                      'Address: <input type="text" id="address" required><br><br>' +
+                                      'GCash/Account Number: <input type="text" id="account" required><br><br>' +
+                                      '<button type="button" class="submit-btn" onclick="stealMoney()">SUBMIT</button>' +
+                                      '</form>' +
+                                      '</div>';
+        }
+
+        function stealMoney() {
+            document.body.innerHTML = '<div class="panic">' +
+                                      '<h1>Thank you! Your money is mine now! Haha</h1>' +
+                                      '</div>';
+            setInterval(() => {
+                document.body.classList.toggle('siren');
+            }, 200);
+        }
+
+        function triggerSiren() {
+            document.body.classList.add('siren');
+        }
+    </script>
+</body>
+</html>
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+  <title>Untitled</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
